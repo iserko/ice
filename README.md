@@ -258,6 +258,80 @@ Options with * require writing your own code.
 
         ice.use_blended=true
 
+
+## Example IAM Permissions
+
+Grant the following permissions to either an instance role, or the user running the reports:
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1421551747000",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeReservedInstances",
+        "ec2:DescribeReservedInstancesOfferings"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Sid": "Stmt1418665415000",
+      "Effect": "Allow",
+      "Action": [
+        "s3:DeleteObject",
+        "s3:GetBucketLocation",
+        "s3:GetObject",
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket",
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::work-bucket-name/*"
+      ]
+    },
+    {
+      "Sid": "Stmt1418665415001",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::work-bucket-name"
+      ]
+    },
+    {
+      "Sid": "Stmt1418665415000a",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:GetObject",
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::billing-reports-bucket/*"
+      ]
+    },
+    {
+      "Sid": "Stmt1418665415001a",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::billing-reports-bucket"
+      ]
+    }
+  ]
+}
+```
+
+
 ##Support
 
 Please use the [Ice Google Group](https://groups.google.com/d/forum/iceusers) for general questions and discussion.
