@@ -267,7 +267,7 @@ Grant the following permissions to either an instance role, or the user running 
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "Stmt1421551747000",
+      "Sid": "Statement1",
       "Effect": "Allow",
       "Action": [
         "ec2:DescribeReservedInstances",
@@ -278,52 +278,30 @@ Grant the following permissions to either an instance role, or the user running 
       ]
     },
     {
-      "Sid": "Stmt1418665415000",
+      "Sid": "Statement2",
       "Effect": "Allow",
       "Action": [
-        "s3:DeleteObject",
-        "s3:GetBucketLocation",
-        "s3:GetObject",
-        "s3:ListAllMyBuckets",
-        "s3:ListBucket",
-        "s3:PutObject"
+        "s3:Abort*",
+        "s3:Delete*",
+        "s3:Get*",
+        "s3:List*",
+        "s3:Put*",
+        "s3:Restore*"
       ],
       "Resource": [
-        "arn:aws:s3:::work-bucket-name/*"
-      ]
-    },
-    {
-      "Sid": "Stmt1418665415001",
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetBucketLocation",
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::work-bucket-name"
-      ]
-    },
-    {
-      "Sid": "Stmt1418665415000a",
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetBucketLocation",
-        "s3:GetObject",
-        "s3:ListAllMyBuckets",
-        "s3:ListBucket"
-      ],
-      "Resource": [
+        "arn:aws:s3:::work-bucket-name/*",
         "arn:aws:s3:::billing-reports-bucket/*"
       ]
     },
     {
-      "Sid": "Stmt1418665415001a",
+      "Sid": "Statement3",
       "Effect": "Allow",
       "Action": [
         "s3:GetBucketLocation",
         "s3:ListBucket"
       ],
       "Resource": [
+        "arn:aws:s3:::work-bucket-name",
         "arn:aws:s3:::billing-reports-bucket"
       ]
     }
