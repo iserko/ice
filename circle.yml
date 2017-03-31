@@ -1,0 +1,16 @@
+machine:
+  timezone:
+    UTC
+  java:
+    openjdk7
+
+dependencies:
+  cache_directories:
+    - "~/.grails"
+
+  override:
+    - ./grailsw war
+
+tests:
+  override:
+    - echo ""
