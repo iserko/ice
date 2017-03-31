@@ -1,8 +1,7 @@
 machine:
-  timezone:
-    UTC
+  timezone: UTC
   java:
-    openjdk7
+    version: openjdk7
 
 dependencies:
   cache_directories:
